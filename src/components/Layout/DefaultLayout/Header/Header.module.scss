@@ -15,8 +15,7 @@
    padding: 0 24px;
 }
 
-.logo {
-}
+
 
 .search,
 .search-result {
@@ -67,8 +66,7 @@
    }
 }
 
-.search-result {
-}
+
 
 .clear,
 .loading {
@@ -79,8 +77,7 @@
    color: rgba(22, 24, 35, 0.34);
 }
 
-.loading {
-}
+
 
 .search-btn {
    width: 52px;
@@ -124,6 +121,8 @@
    padding: 4px 12px;
    cursor: pointer;
    margin-top: 8px;
+   position: relative;
+   display: flex;
 }
 
 .user-avatar {
@@ -133,4 +132,20 @@
    border-radius: 50%;
    margin-left: 12px;
    cursor: pointer;
+}
+
+///////////////
+.badge {
+   position: absolute;
+   top: -3px;
+   right: 0px;
+   padding: 0px 6px;
+   height: 2rem;
+   line-height: 2rem;
+   border-radius: 10px;
+   font-size: 1.4rem;
+   font-weight: 600;
+   color: var(--white);
+   font-family: 'ProximaNova', sans-serif;
+   background-color: var(--primary);
 }

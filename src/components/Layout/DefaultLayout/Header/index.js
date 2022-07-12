@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React from "react";
 import classNames from "classnames/bind";
 import style from "./Header.module.scss";
 import images from "~/assets/images";
@@ -15,7 +15,6 @@ import {
    faCoins,
    faGear,
    faSignOut,
-   faCloudUpload,
 } from "@fortawesome/free-solid-svg-icons";
 import HeadlessTippy from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
@@ -25,6 +24,9 @@ import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
 import avatar from "~/assets/images/157953219_2021098151361266_2282117636854165433_n.jpg";
+
+import {InboxIcon, MessageIcon, UploadIcon} from "~/components/Icons";
+import Image from "~/components/Image";
 
 const cx = classNames.bind(style);
 
@@ -152,7 +154,21 @@ export default function Header() {
                         content="Upload video"
                         placement="bottom">
                         <button className={cx("action-btn")}>
-                           <FontAwesomeIcon icon={faCloudUpload} />
+                           <UploadIcon />
+                        </button>
+                     </Tippy>
+                     <Tippy
+                        delay={[0, 50]}
+                        content="Message"
+                        placement="bottom">
+                        <button className={cx("action-btn")}>
+                           <MessageIcon />
+                        </button>
+                     </Tippy>
+                     <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                        <button className={cx("action-btn")}>
+                           <InboxIcon />
+                           <span className={cx("badge")}>12</span>
                         </button>
                      </Tippy>
                   </>
@@ -166,7 +182,7 @@ export default function Header() {
                   items={currentUser ? userMenu : MENU_ITEMS}
                   onChange={handleMenuChange}>
                   {currentUser ? (
-                     <img
+                     <Image
                         className={cx("user-avatar")}
                         src={avatar}
                         alt="Nguyen Van A"
