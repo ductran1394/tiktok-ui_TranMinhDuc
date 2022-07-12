@@ -27,6 +27,7 @@ import avatar from "~/assets/images/157953219_2021098151361266_22821176368541654
 
 import {InboxIcon, MessageIcon, UploadIcon} from "~/components/Icons";
 import Image from "~/components/Image";
+import Search from "../../Search";
 
 const cx = classNames.bind(style);
 
@@ -119,32 +120,8 @@ export default function Header() {
                <img src={images.logo} alt="tiktok" />
             </div>
 
-            <HeadlessTippy
-               visible={searchResult.length > 0}
-               interactive
-               render={(attrs) => (
-                  <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-                     <PopperWrapper>
-                        <h4 className={cx("search-title")}>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                     </PopperWrapper>
-                  </div>
-               )}>
-               <div className={cx("search")}>
-                  <input placeholder="Search accounts and videos" />
-                  <button className={cx("clear")}>
-                     <FontAwesomeIcon icon={faCircleXmark} />
-                  </button>
-                  <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
-
-                  <button className={cx("search-btn")}>
-                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </button>
-               </div>
-            </HeadlessTippy>
+            {/* Search */}
+            <Search />
 
             <div className={cx("actions")}>
                {currentUser ? (
