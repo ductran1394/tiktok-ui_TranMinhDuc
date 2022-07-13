@@ -15,6 +15,9 @@ import {Wrapper as PopperWrapper} from "~/components/Popper";
 import AccountItem from "~/components/AccountItem";
 
 import {useDebounce} from "~/hooks";
+import axios from "axios";
+import * as request from "~/utils/request";
+import * as searchServices from "~/services/searchServices";
 
 const cx = classNames.bind(style);
 
@@ -34,21 +37,14 @@ export default function Search() {
          return;
       }
 
-      setLoading(true);
+      const fetchApi = async () => {
+         setLoading(true);
+         const result = await searchServices.search(debounced);
+         setSearchResult(result);
+         setLoading(false);
+      };
 
-      fetch(
-         `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-            debounced
-         )}&type=less`
-      )
-         .then((res) => res.json())
-         .then((res) => {
-            setSearchResult(res.data);
-            setLoading(false);
-         })
-         .catch(() => {
-            setLoading(false);
-         });
+      fetchApi();
    }, [debounced]);
 
    const handleClear = () => {
