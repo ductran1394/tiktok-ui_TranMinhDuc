@@ -17,7 +17,7 @@ import AccountItem from "~/components/AccountItem";
 import {useDebounce} from "~/hooks";
 import axios from "axios";
 import * as request from "~/utils/request";
-import * as searchServices from "~/services/searchServices";
+import * as searchService from "~/services/searchService";
 
 const cx = classNames.bind(style);
 
@@ -39,7 +39,7 @@ export default function Search() {
 
       const fetchApi = async () => {
          setLoading(true);
-         const result = await searchServices.search(debounced);
+         const result = await searchService.search(debounced);
          setSearchResult(result);
          setLoading(false);
       };
