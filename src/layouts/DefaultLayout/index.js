@@ -3,6 +3,7 @@ import Sidebar from "./Siderbar";
 import style from "./DefaultLayout.module.scss";
 import classNames from "classnames/bind";
 import React from "react";
+import PropTypes from "prop-types";
 
 const cx = classNames.bind(style);
 
@@ -17,3 +18,7 @@ export default function DefaultLayout({children}) {
       </div>
    );
 }
+
+DefaultLayout.propTypes = {
+   children: PropTypes.node.isRequired,
+};

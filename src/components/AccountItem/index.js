@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import images from "~/assets/images/157953219_2021098151361266_2282117636854165433_n.jpg";
 import Image from "../Image";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const cx = classNames.bind(styles);
 
@@ -32,3 +33,7 @@ export default function AccountItem({data}) {
       </Link>
    );
 }
+
+AccountItem.propTypes = {
+   data: PropTypes.object.isRequired,
+};
